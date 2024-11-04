@@ -24,7 +24,8 @@
                 @endif
 
                 @if (auth()->user()->level === 'admin')
-                    <a href="{{ URL('/admin') }}" class="d-block"><button>Go to Admin</button></a>
+                    <a href="{{ URL('/admin') }}" class="d-block"><button class="btn btn-primary">Go to Admin</button></a>
+                    <a href="{{ URL('/users') }}" class="d-block"><button class="btn btn-secondary mt-1">Go to Users</button></a>
                 @elseif(auth()->user()->level === 'user')
                     <p>nothing to do here</p>
                 @endif
