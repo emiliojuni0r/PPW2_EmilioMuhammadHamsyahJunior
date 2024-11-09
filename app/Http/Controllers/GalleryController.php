@@ -97,7 +97,7 @@ class GalleryController extends Controller
         $post = Post::findOrFail($id);
 
         if ($request->hasFile('picture')) {
-            // Process image upload here
+            // Process image
             $filenameWithExt = $request->file('picture')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('picture')->getClientOriginalExtension();
