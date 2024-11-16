@@ -38,12 +38,20 @@ class LoginRegisterController extends Controller
             $path = $request->file('photo')->storeAs('photos', $filenameSimpan);
         }
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'photo' => $path    
         ]);
+
+        $data = [
+            'name' => $user->name,
+            'email' => $user->email,
+            'subject' => 'New User has been registed',
+            'body' => "Pengguna baru telah terdaftar.\nNama: {$user->name}\nEmail: {$user->email}"
+        ];
+        dispatch(new \App\Jobs\SendEmailJob($data));
 
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
