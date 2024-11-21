@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SendEmailController;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,3 +55,5 @@ Route::resource('gallery', GalleryController::class);
 
 Route::get('/send-email', [SendEmailController::class, 'index'])->name('kirim-email');
 Route::post('/post-email', [SendEmailController::class,'store'])->name('post-email');
+
+
