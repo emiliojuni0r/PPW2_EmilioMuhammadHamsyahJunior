@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoController;
@@ -23,3 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // pertemuan 13 api
 Route::get('/info', [InfoController::class, 'index'])->name('info');
 Route::get('/greet', [GreetController::class, 'greet'])->name('greet');
+
+
+// tugas pertemuan 13 api
+Route::get('/galleries', [GalleryController::class,'apiIndex']);
